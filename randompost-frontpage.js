@@ -37,7 +37,8 @@
 
         setCookie("random_redirected", "false");
 
-        const posts = document.querySelectorAll("li a");
+        let posts = document.querySelectorAll("li a");
+        posts = Array.from(posts).filter(link => !link.closest('small'));
         if (posts.length > 0) {
             const post = posts[Math.floor(Math.random() * posts.length)];
             window.location.href = post.href;
